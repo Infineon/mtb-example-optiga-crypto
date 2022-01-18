@@ -1,0 +1,54 @@
+# Documentation
+documents
+
+# Exports, Project settings
+.mtbLaunchConfigs
+.settings
+.vscode
+
+# Not required PALs
+$(SEARCH_optiga-trust-m)/pal/NEW_PAL_TEMPLATE
+$(SEARCH_optiga-trust-m)/pal/esp32_freertos
+$(SEARCH_optiga-trust-m)/pal/libusb
+$(SEARCH_optiga-trust-m)/pal/linux
+$(SEARCH_optiga-trust-m)/pal/xmc4800
+$(SEARCH_optiga-trust-m)/pal/xmc4800_freertos
+
+# Not required Crypto midlayers
+$(SEARCH_optiga-trust-m)/pal/pal_crypt_openssl.c
+$(SEARCH_optiga-trust-m)/pal/pal_crypt_wolfssl.c
+
+# Not required mbedtls wrapers
+$(SEARCH_optiga-trust-m)/examples/mbedtls_port
+
+# Exclude tools and utilities from the build
+$(SEARCH_optiga-trust-m)/examples/tools
+
+# Not required executeable for tools
+$(SEARCH_optiga-trust-m)/examples/utilities/authenticate_chip
+$(SEARCH_optiga-trust-m)/examples/utilities/pkcs11_trustm.c
+$(SEARCH_optiga-trust-m)/examples/utilities/trustm_chipinfo.c
+$(SEARCH_optiga-trust-m)/examples/utilities/optiga_trust.c
+$(SEARCH_optiga-trust-m)/examples/optiga_shell.c
+$(SEARCH_optiga-trust-m)/examples/optiga/example_optiga_init_deinit.c
+$(SEARCH_optiga-trust-m)/examples/optiga/example_optiga_crypt_clear_auto_state.c
+$(SEARCH_optiga-trust-m)/examples/optiga/example_optiga_crypt_ecc_generate_keypair.c
+$(SEARCH_optiga-trust-m)/examples/optiga/example_optiga_crypt_ecdh.c
+$(SEARCH_optiga-trust-m)/examples/optiga/example_optiga_crypt_ecdsa_sign.c
+$(SEARCH_optiga-trust-m)/examples/optiga/example_optiga_crypt_ecdsa_verify.c
+$(SEARCH_optiga-trust-m)/examples/optiga/example_optiga_crypt_hash.c
+$(SEARCH_optiga-trust-m)/examples/optiga/example_optiga_crypt_hkdf.c
+$(SEARCH_optiga-trust-m)/examples/optiga/example_optiga_crypt_hmac.c
+$(SEARCH_optiga-trust-m)/examples/optiga/example_optiga_crypt_random.c
+$(SEARCH_optiga-trust-m)/examples/optiga/example_optiga_crypt_rsa_decrypt.c
+$(SEARCH_optiga-trust-m)/examples/optiga/example_optiga_crypt_rsa_encrypt_message.c
+$(SEARCH_optiga-trust-m)/examples/optiga/example_optiga_crypt_rsa_encrypt_session.c
+$(SEARCH_optiga-trust-m)/examples/optiga/example_optiga_crypt_rsa_generate_keypair.c
+$(SEARCH_optiga-trust-m)/examples/optiga/example_optiga_crypt_rsa_sign.c
+$(SEARCH_optiga-trust-m)/examples/optiga/example_optiga_crypt_rsa_verify.c
+$(SEARCH_optiga-trust-m)/examples/optiga/example_optiga_crypt_symmetric_encrypt_decrypt.c
+$(SEARCH_optiga-trust-m)/examples/optiga/example_optiga_crypt_symmetric_encrypt_decrypt_ecb.c
+$(SEARCH_optiga-trust-m)/examples/optiga/example_optiga_crypt_symmetric_generate_key.c
+$(SEARCH_optiga-trust-m)/examples/optiga/example_optiga_crypt_tls_prf_sha256.c
+$(SEARCH_optiga-trust-m)/examples/optiga/usecases/example_optiga_hmac_verify_with_authorization_reference.c
+$(SEARCH_optiga-trust-m)/examples/optiga/usecases/example_pair_host_and_optiga_using_pre_shared_secret.c
