@@ -39,6 +39,10 @@
 #ifndef _OPTIGA_LIB_CONFIG_M_V3_H_
 #define _OPTIGA_LIB_CONFIG_M_V3_H_
 
+#include "cy_pdl.h"
+#include "cyhal.h"
+#include "cybsp.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -103,16 +107,6 @@ extern "C" {
 
     /** @brief Default reset protection level for OPTIGA CRYPT and UTIL APIs */
     #define OPTIGA_COMMS_DEFAULT_PROTECTION_LEVEL           OPTIGA_COMMS_NO_PROTECTION
-
-  /** @brief Default reset type in optiga_comms_open.             \n
-     *         Cold Reset - (0) : This is applicable if the host platform has GPIO option for RST and VDD.    \n
-     *         Soft Reset - (1) : This is applicable if the host platform doesn't have GPIO options for VDD and RST.  \n
-     *         Warm Reset - (2) : This is applicable if the host platform doesn't have GPIO option for VDD. \n
-     *         Any other value will lead to error
-     */
-    #ifndef OPTIGA_COMMS_DEFAULT_RESET_TYPE
-        #define OPTIGA_COMMS_DEFAULT_RESET_TYPE     (1U)
-    #endif
     
     /** @brief NULL parameter check.
      *         To disable the check, undefine the macro
@@ -153,18 +147,44 @@ extern "C" {
     #define EXAMPLE_OPTIGA_UTIL_PROTECTED_UPDATE_OBJECT_METADATA_ENABLED    
     
 
-    /* The following GPIO settings are only ModusToolbox and specific PSoC6 family board relevant
-     * If you don't have both the Reset and the VCC Power Control connected, please define
-     * OPTIGA_COMMS_DEFAULT_RESET_TYPE to be 1
-     * in case you have both VDD and Reset lines connected use the value 0
-     * */
+    /* 
+     * The following GPIO settings are only ModusToolbox and specific PSoC6 family board relevant
+     */
+#if defined(CYBSP_TRUSTM_I2C_SCL)
     #define OPTIGA_TRUSTM_SCL        CYBSP_TRUSTM_I2C_SCL
+#elif defined(CYBSP_I2C_SCL)
+    #define OPTIGA_TRUSTM_SCL        CYBSP_I2C_SCL
+#else
+    #error "You need to define the OPTIGA_TRUSTM_SCL macro for OPTIGA to know what to use for the communication"
+#endif
+
+#if defined(CYBSP_TRUSTM_I2C_SDA)
     #define OPTIGA_TRUSTM_SDA        CYBSP_TRUSTM_I2C_SDA
-#ifdef CYBSP_TRUSTM_RST
+#elif defined(CYBSP_I2C_SDA)
+    #define OPTIGA_TRUSTM_SDA        CYBSP_I2C_SDA
+#else
+    #error "You need to define the OPTIGA_TRUSTM_SDA macro for OPTIGA to know what to use for the communication"
+#endif
+
+#if defined(CYBSP_TRUSTM_RST)
     #define OPTIGA_TRUSTM_RST        CYBSP_TRUSTM_RST
 #endif
-#ifdef CYBSP_TRUSTM_VDD
+#if defined(CYBSP_TRUSTM_VDD)
     #define OPTIGA_TRUSTM_VDD        CYBSP_TRUSTM_VDD
+#endif
+
+/** @brief Default reset type in optiga_comms_open.             \n
+ *         Cold Reset - (0) : This is applicable if the host platform has GPIO option for RST and VDD.    \n
+ *         Soft Reset - (1) : This is applicable if the host platform doesn't have GPIO options for VDD and RST.  \n
+ *         Warm Reset - (2) : This is applicable if the host platform doesn't have GPIO option for VDD. \n
+ *         Any other value will lead to error
+ */
+#if defined(CYBSP_TRUSTM_RST) || defined(CYBSP_TRUSTM_VDD)
+    #define OPTIGA_COMMS_DEFAULT_RESET_TYPE     (0U)
+#elif !defined(CYBSP_TRUSTM_RST) && !defined(CYBSP_TRUSTM_VDD)
+    #define OPTIGA_COMMS_DEFAULT_RESET_TYPE     (1U)
+#elif defined(CYBSP_TRUSTM_RST) && !defined(CYBSP_TRUSTM_VDD)
+    #define OPTIGA_COMMS_DEFAULT_RESET_TYPE     (0U)
 #endif
 
 #ifdef __cplusplus

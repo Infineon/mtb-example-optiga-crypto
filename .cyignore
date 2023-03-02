@@ -52,3 +52,4 @@ $(SEARCH_optiga-trust-m)/examples/optiga/example_optiga_crypt_symmetric_generate
 $(SEARCH_optiga-trust-m)/examples/optiga/example_optiga_crypt_tls_prf_sha256.c
 $(SEARCH_optiga-trust-m)/examples/optiga/usecases/example_optiga_hmac_verify_with_authorization_reference.c
 $(SEARCH_optiga-trust-m)/examples/optiga/usecases/example_pair_host_and_optiga_using_pre_shared_secret.c
+$(SEARCH_optiga-trust-m)/examples/optiga/usecases/example_read_coprocessor_id.c

@@ -124,12 +124,6 @@ int main(void)
 
     printf("****************** OPTIGA: Cryptography Example ****************** \r\n\n");
 
-    /* 
-      PAL stands for Pltaform Abstraction Layer in OPTIGA Host library 
-      Here all the target system relevant function started
-    */
-    pal_init();
-
     /*
       Initialise the chip with this function
     */
