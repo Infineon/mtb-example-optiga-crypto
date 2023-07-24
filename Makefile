@@ -43,8 +43,8 @@ MTB_TYPE=COMBINED
 TARGET=CYSBSYSKIT-DEV-01
 
 # Name of application (used to derive name of final linked file).
-# 
-# If APPNAME is edited, ensure to update or regenerate launch 
+#
+# If APPNAME is edited, ensure to update or regenerate launch
 # configurations for your IDE.
 APPNAME=mtb-example-optiga-crypto
 
@@ -62,8 +62,8 @@ TOOLCHAIN=GCC_ARM
 # Debug -- build with minimal optimizations, focus on debugging.
 # Release -- build with full optimizations
 # Custom -- build with custom configuration, set the optimization flag in CFLAGS
-# 
-# If CONFIG is manually edited, ensure to update or regenerate launch configurations 
+#
+# If CONFIG is manually edited, ensure to update or regenerate launch configurations
 # for your IDE.
 CONFIG=Debug
 
@@ -86,7 +86,7 @@ VERBOSE=
 # added to the build
 #
 # OPTIGA has various Platform Abstraction Layers implemented for various boards
-# the component below selects a required PAL. See more at the optiga-trust-m 
+# the component below selects a required PAL. See more at the optiga-trust-m
 # middleware repository
 COMPONENTS=OPTIGA_CYHAL
 
@@ -157,9 +157,9 @@ CY_APP_PATH=
 
 # Relative path to the shared repo location.
 #
-# All .mtb files have the format, <URI>#<COMMIT>#<LOCATION>. If the <LOCATION> field 
-# begins with $$ASSET_REPO$$, then the repo is deposited in the path specified by 
-# the CY_GETLIBS_SHARED_PATH variable. The default location is one directory level 
+# All .mtb files have the format, <URI>#<COMMIT>#<LOCATION>. If the <LOCATION> field
+# begins with $$ASSET_REPO$$, then the repo is deposited in the path specified by
+# the CY_GETLIBS_SHARED_PATH variable. The default location is one directory level
 # above the current app directory.
 # This is used with CY_GETLIBS_SHARED_NAME variable, which specifies the directory name.
 CY_GETLIBS_SHARED_PATH=../
@@ -168,11 +168,13 @@ CY_GETLIBS_SHARED_PATH=../
 #
 CY_GETLIBS_SHARED_NAME=mtb_shared
 
-# Absolute path to the compiler's "bin" directory.
+# Absolute path to the compiler's "bin" directory. The variable name depends on the
+# toolchain used for the build. Refer to the ModusToolbox user guide to get the correct
+# variable name for the toolchain used in your build.
 #
 # The default depends on the selected TOOLCHAIN (GCC_ARM uses the ModusToolbox
 # software provided compiler by default).
-CY_COMPILER_PATH=
+CY_COMPILER_GCC_ARM_DIR=
 
 
 # Locate ModusToolbox helper tools folders in default installation

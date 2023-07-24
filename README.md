@@ -4,12 +4,12 @@ This example uses an OPTIGA™ Trust M V3 security solution on a PSoC&trade; 6 M
 
 [View this README on GitHub.](https://github.com/Infineon/mtb-example-optiga-crypto)
 
-[Provide feedback on this code example.](https://cypress.co1.qualtrics.com/jfe/form/SV_1NTns53sK2yiljn?Q_EED=eyJVbmlxdWUgRG9jIElkIjoiQ0UyMzM2OTMiLCJTcGVjIE51bWJlciI6IjAwMi0zMzY5MyIsIkRvYyBUaXRsZSI6Ik9QVElHQeKEojogQ3J5cHRvZ3JhcGh5IiwicmlkIjoieXVzaGV2IiwiRG9jIHZlcnNpb24iOiIyLjAuMCIsIkRvYyBMYW5ndWFnZSI6IkVuZ2xpc2giLCJEb2MgRGl2aXNpb24iOiJOL0EiLCJEb2MgQlUiOiJOL0EiLCJEb2MgRmFtaWx5IjoiTi9BIn0=)
+[Provide feedback on this code example.](https://cypress.co1.qualtrics.com/jfe/form/SV_1NTns53sK2yiljn?Q_EED=eyJVbmlxdWUgRG9jIElkIjoiQ0UyMzM2OTMiLCJTcGVjIE51bWJlciI6IjAwMi0zMzY5MyIsIkRvYyBUaXRsZSI6Ik9QVElHQeKEojogQ3J5cHRvZ3JhcGh5IiwicmlkIjoieXVzaGV2IiwiRG9jIHZlcnNpb24iOiIyLjEuMCIsIkRvYyBMYW5ndWFnZSI6IkVuZ2xpc2giLCJEb2MgRGl2aXNpb24iOiJOL0EiLCJEb2MgQlUiOiJOL0EiLCJEb2MgRmFtaWx5IjoiTi9BIn0=)
 
 
 ## Requirements
 
-- [ModusToolbox&trade; software](https://www.infineon.com/modustoolbox) v3.0 or later (tested with v3.0)
+- [ModusToolbox&trade; software](https://www.infineon.com/modustoolbox) v3.1 or later (tested with v3.1)
 - Board support package (BSP) minimum required version: 4.0.0
 - Programming language: C
 - Associated parts:
@@ -19,15 +19,15 @@ This example uses an OPTIGA™ Trust M V3 security solution on a PSoC&trade; 6 M
 
 ## Supported toolchains (make variable 'TOOLCHAIN')
 
-- GNU Arm&reg; embedded compiler v10.3.1 (`GCC_ARM`) - Default value of `TOOLCHAIN`
-- Arm&reg; compiler v6.13 (`ARM`)
+- GNU Arm&reg; embedded compiler v11.3.1 (`GCC_ARM`) - Default value of `TOOLCHAIN`
+- Arm&reg; compiler v6.16 (`ARM`)
 - IAR C/C++ compiler v9.30.1 (`IAR`)
 
 
 ## Supported kits (make variable 'TARGET')
 
 - Rapid IoT connect developer kit (`CYSBSYSKIT-DEV-01`) - Default value of `TARGET`
-- [PSoC&trade; 62S2 evaluation kit](https://www.infineon.com/CY8CEVAL-062S2) (`CY8CEVAL-062S2`, `CY8CEVAL-062S2-CYW943439M2IPA1`, `CY8CEVAL-062S2-LAI-4373M2`)
+- [PSoC&trade; 62S2 evaluation kit](https://www.infineon.com/CY8CEVAL-062S2) (`CY8CEVAL-062S2`, `CY8CEVAL-062S2-LAI-43439M2`, `CY8CEVAL-062S2-LAI-4373M2`, `CY8CEVAL-062S2-MUR-43439M2`, `CY8CEVAL-062S2-MUR-4373EM2`)
 - To use this code example on different hardware, please follow this [guidance](https://community.infineon.com/t5/Blogs/Interfacing-OPTIGA-Trust-M-with-a-PSoC-6-device/ba-p/361647)
 
 
@@ -383,6 +383,7 @@ Document title: *CE233693* – *OPTIGA&trade;: Cryptography*
  ------- | ---------------------
  1.0.0   | New code example
  2.0.0   | Updated to support ModusToolbox&trade; software v3.0 and BSPs v4.X
+ 2.1.0   | Added support for new kits
 
 <br>
 
