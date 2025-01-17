@@ -30,8 +30,8 @@
 * SOFTWARE
 *******************************************************************************/
 
-#include "optiga/optiga_crypt.h"
-#include "optiga/optiga_util.h"
+#include "include/optiga_crypt.h"
+#include "include/optiga_util.h"
 #include "optiga_example.h"
 
 #if defined (OPTIGA_CRYPT_TLS_PRF_SHA256_ENABLED)
@@ -127,7 +127,7 @@ void example_optiga_crypt_tls_prf_sha256(void)
         }
 
         /**
-         * 1. Write the shared secret to the Arbitrary data object F1D0
+         * 1. Write the shared secret to the Arbitrary data object OPTIGA_FREE_ARB_DATA_OBJECT_ID
          *       - This is typically a one time activity and
          *       - use the this OID as input secret to derive keys further
          * 2. Use Erase and Write (OPTIGA_UTIL_ERASE_AND_WRITE) option,
@@ -135,7 +135,7 @@ void example_optiga_crypt_tls_prf_sha256(void)
          */
         optiga_lib_status = OPTIGA_LIB_BUSY;
         return_status = optiga_util_write_data(me_util,
-                                               0xF1D0,
+                                               OPTIGA_FREE_ARB_DATA_OBJECT_ID,
                                                OPTIGA_UTIL_ERASE_AND_WRITE ,
                                                0x00,
                                                secret_to_be_written,
@@ -150,7 +150,7 @@ void example_optiga_crypt_tls_prf_sha256(void)
 
         optiga_lib_status = OPTIGA_LIB_BUSY;
         return_status = optiga_util_write_metadata(me_util,
-                                                   0xF1D0,
+                                                   OPTIGA_FREE_ARB_DATA_OBJECT_ID,
                                                    metadata,
                                                    sizeof(metadata));
 
@@ -168,7 +168,7 @@ void example_optiga_crypt_tls_prf_sha256(void)
 
         /**
          * 4. Derive key (e.g. decryption key) using optiga_crypt_tls_prf_sha256 with protected I2C communication.
-         *       - Use shared secret from F1D0 data object
+         *       - Use shared secret from OPTIGA_FREE_ARB_DATA_OBJECT_ID data object
          */
         optiga_lib_status = OPTIGA_LIB_BUSY;
 
@@ -178,7 +178,7 @@ void example_optiga_crypt_tls_prf_sha256(void)
         START_PERFORMANCE_MEASUREMENT(time_taken);
         
         return_status = optiga_crypt_tls_prf_sha256(me,
-                                                    0xF1D0, /* Input secret OID */
+                                                    OPTIGA_FREE_ARB_DATA_OBJECT_ID, /* Input secret OID */
                                                     label,
                                                     sizeof(label),
                                                     random_seed,
@@ -198,7 +198,7 @@ void example_optiga_crypt_tls_prf_sha256(void)
 
         optiga_lib_status = OPTIGA_LIB_BUSY;
         return_status = optiga_util_write_metadata(me_util,
-                                                   0xF1D0,
+                                                   OPTIGA_FREE_ARB_DATA_OBJECT_ID,
                                                    default_metadata,
                                                    sizeof(default_metadata));
 

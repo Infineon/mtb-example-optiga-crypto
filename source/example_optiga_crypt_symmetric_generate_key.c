@@ -29,8 +29,8 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE
 *******************************************************************************/
-#include "optiga/optiga_util.h"
-#include "optiga/optiga_crypt.h"
+#include "include/optiga_util.h"
+#include "include/optiga_crypt.h"
 #include "optiga_example.h"
 
 #ifdef OPTIGA_CRYPT_SYM_GENERATE_KEY_ENABLED

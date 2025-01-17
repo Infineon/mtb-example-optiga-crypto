@@ -31,7 +31,7 @@
 * SOFTWARE
 *******************************************************************************/
 
-#include "optiga/optiga_crypt.h"
+#include "include/optiga_crypt.h"
 #include "optiga_example.h"
 
 #ifdef OPTIGA_CRYPT_RSA_DECRYPT_ENABLED
@@ -108,7 +108,7 @@ void example_optiga_crypt_rsa_decrypt_and_export(void)
          *       - Export Public Key
          */
         optiga_lib_status = OPTIGA_LIB_BUSY;
-        optiga_key_id = OPTIGA_KEY_ID_E0FC;
+        optiga_key_id = OPTIGA_FREE_RSA_KEY_ID;
         return_status = optiga_crypt_rsa_generate_keypair(me,
                                                           OPTIGA_RSA_KEY_1024_BIT_EXPONENTIAL,
                                                           (uint8_t)OPTIGA_KEY_USAGE_ENCRYPTION,
@@ -241,7 +241,7 @@ void example_optiga_crypt_rsa_decrypt_and_store(void)
          *       - Export Public Key
          */
         optiga_lib_status = OPTIGA_LIB_BUSY;
-        optiga_key_id = OPTIGA_KEY_ID_E0FC;
+        optiga_key_id = OPTIGA_FREE_RSA_KEY_ID;
         return_status = optiga_crypt_rsa_generate_keypair(me,
                                                           OPTIGA_RSA_KEY_1024_BIT_EXPONENTIAL,
                                                           (uint8_t)OPTIGA_KEY_USAGE_ENCRYPTION,

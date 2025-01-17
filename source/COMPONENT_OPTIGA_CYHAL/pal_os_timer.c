@@ -35,8 +35,8 @@
 * @{
 */
 
-#include "optiga/pal/pal_os_timer.h"
-#include "optiga/pal/pal.h"
+#include "include/pal/pal_os_timer.h"
+#include "include/pal/pal.h"
 #include "cy_pdl.h"
 #include "cyhal.h"
 #include "cybsp.h"

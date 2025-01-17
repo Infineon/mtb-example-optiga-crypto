@@ -35,7 +35,7 @@
 * @{
 */
 
-#include "optiga/pal/pal_os_lock.h"
+#include "include/pal/pal_os_lock.h"
 
 void pal_os_lock_create(pal_os_lock_t * p_lock, uint8_t lock_type)
 {

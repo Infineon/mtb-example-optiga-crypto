@@ -29,8 +29,8 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE
 *******************************************************************************/
-#include "optiga/optiga_util.h"
-#include "optiga/optiga_crypt.h"
+#include "include/optiga_util.h"
+#include "include/optiga_crypt.h"
 #include "optiga_example.h"
 
 #ifdef OPTIGA_CRYPT_RSA_GENERATE_KEYPAIR_ENABLED
@@ -65,9 +65,9 @@ static void optiga_util_callback(void * context, optiga_lib_status_t return_stat
 }
 
 /**
- * Sample metadata of 0xE0F1 
+ * Sample metadata of OPTIGA_FREE_RSA_KEY_ID 
  */
-const uint8_t E0FC_metadata[] = { 0x20, 0x06, 0xD0, 0x01, 0x00, 0xD3, 0x01, 0x00 };
+const uint8_t OPTIGA_FREE_RSA_KEY_ID_metadata[] = { 0x20, 0x06, 0xD0, 0x01, 0x00, 0xD3, 0x01, 0x00 };
 
 /**
  * The below example demonstrates the generation of
@@ -124,11 +124,11 @@ void example_optiga_crypt_rsa_generate_keypair(void)
         }
 
         optiga_lib_status = OPTIGA_LIB_BUSY;
-        optiga_oid = 0xE0FC;
-        return_status = optiga_util_write_metadata(util_me,
+        optiga_oid = OPTIGA_FREE_RSA_KEY_ID;
+          return_status = optiga_util_write_metadata(util_me,
                                                    optiga_oid,
-                                                   E0FC_metadata,
-                                                   sizeof(E0FC_metadata));
+                                                   OPTIGA_FREE_RSA_KEY_ID_metadata,
+                                                   sizeof(OPTIGA_FREE_RSA_KEY_ID_metadata));
 
         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
         
@@ -142,7 +142,7 @@ void example_optiga_crypt_rsa_generate_keypair(void)
          *       - Export Public Key
          */
         optiga_lib_status = OPTIGA_LIB_BUSY;
-        optiga_key_id = OPTIGA_KEY_ID_E0FC;
+        optiga_key_id = OPTIGA_FREE_RSA_KEY_ID;
         
         START_PERFORMANCE_MEASUREMENT(time_taken);
         

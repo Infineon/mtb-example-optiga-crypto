@@ -35,7 +35,7 @@
 * @{
 */
 #include "optiga_example.h"
-#include "optiga/optiga_util.h"
+#include "include/optiga_util.h"
 
 #ifdef OPTIGA_COMMS_SHIELDED_CONNECTION
 extern optiga_lib_status_t pair_host_and_optiga_using_pre_shared_secret(void);

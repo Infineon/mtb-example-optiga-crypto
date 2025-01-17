@@ -7,7 +7,7 @@
 #
 ################################################################################
 # \copyright
-# Copyright 2018-2023, Cypress Semiconductor Corporation (an Infineon company)
+# Copyright 2018-2024, Cypress Semiconductor Corporation (an Infineon company)
 # SPDX-License-Identifier: Apache-2.0
 # 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -103,8 +103,10 @@ SOURCES=
 # directories (without a leading -I).
 INCLUDES=
 
+# Custom configuration of mbedtls library.
+MBEDTLSFLAGS = MBEDTLS_USER_CONFIG_FILE='"mbedtls_user_config.h"' CY_CRYPTO_HAL_DISABLE
 # Add additional defines to the build process (without a leading -D).
-DEFINES=\
+DEFINES=$(MBEDTLSFLAGS) \
 	OPTIGA_LIB_EXTERNAL='"optiga_lib_config_mtb.h"' \
     OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY\
 	MODE=$(MODE)

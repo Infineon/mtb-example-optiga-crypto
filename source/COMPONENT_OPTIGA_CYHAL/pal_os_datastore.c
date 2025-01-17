@@ -35,7 +35,7 @@
 * @{
 */
 
-#include "optiga/pal/pal_os_datastore.h"
+#include "include/pal/pal_os_datastore.h"
 /// @cond hidden
 
 /// Size of length field 

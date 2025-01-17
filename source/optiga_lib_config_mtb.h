@@ -103,7 +103,7 @@ extern "C" {
     /** @brief OPTIGA COMMS shielded connection feature.
      *         To disable the feature, undefine the macro
      */
-    #define OPTIGA_COMMS_SHIELDED_CONNECTION
+//    #define OPTIGA_COMMS_SHIELDED_CONNECTION
 
     /** @brief Default reset protection level for OPTIGA CRYPT and UTIL APIs */
     #define OPTIGA_COMMS_DEFAULT_PROTECTION_LEVEL           OPTIGA_COMMS_NO_PROTECTION
@@ -186,6 +186,12 @@ extern "C" {
 #elif defined(CYBSP_TRUSTM_RST) && !defined(CYBSP_TRUSTM_VDD)
     #define OPTIGA_COMMS_DEFAULT_RESET_TYPE     (0U)
 #endif
+
+#define OPTIGA_FREE_ECC_KEY_ID              OPTIGA_KEY_ID_E0F2
+#define OPTIGA_FREE_RSA_KEY_ID              OPTIGA_KEY_ID_E0FD
+#define OPTIGA_FREE_ARB_DATA_OBJECT_ID      0xF1D1
+#define OPTIGA_FREE_ARB_DATA_OBJECT_ID_C    0xf1, 0xd1
+
 
 #ifdef __cplusplus
 }

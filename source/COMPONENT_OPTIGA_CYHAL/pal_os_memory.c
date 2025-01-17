@@ -36,7 +36,7 @@
 */
 
 //#include <DAVE.h>
-#include "optiga/pal/pal_os_memory.h"
+#include "include/pal/pal_os_memory.h"
 
 void * pal_os_malloc(uint32_t block_size)
 {

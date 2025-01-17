@@ -30,7 +30,7 @@
 * SOFTWARE
 *******************************************************************************/
 
-#include "optiga/optiga_crypt.h"
+#include "include/optiga_crypt.h"
 #include "optiga_example.h"
 
 #ifdef OPTIGA_CRYPT_RSA_SIGN_ENABLED
@@ -102,7 +102,7 @@ void example_optiga_crypt_rsa_sign(void)
 
         /**
          * 2. Sign the digest -
-         *       - Use Private key from Key Store ID E0FC
+         *       - Use Private key from Key Store ID OPTIGA_FREE_RSA_KEY_ID
          *       - Signature scheme is SHA256,
          */
         optiga_lib_status = OPTIGA_LIB_BUSY;
@@ -113,7 +113,7 @@ void example_optiga_crypt_rsa_sign(void)
                                               OPTIGA_RSASSA_PKCS1_V15_SHA256,
                                               digest,
                                               sizeof(digest),
-                                              OPTIGA_KEY_ID_E0FC,
+                                              OPTIGA_FREE_RSA_KEY_ID,
                                               signature,
                                               &signature_length,
                                               0x0000);

@@ -30,7 +30,7 @@
 * SOFTWARE
 *******************************************************************************/
 
-#include "optiga/optiga_crypt.h"
+#include "include/optiga_crypt.h"
 #include "optiga_example.h"
 
 #ifdef OPTIGA_CRYPT_RSA_ENCRYPT_ENABLED
@@ -103,7 +103,7 @@ void example_optiga_crypt_rsa_encrypt_session(void)
          * 2. Generate 1024 bit RSA Key pair
          */
         optiga_lib_status = OPTIGA_LIB_BUSY;
-        optiga_key_id = OPTIGA_KEY_ID_E0FC;
+        optiga_key_id = OPTIGA_FREE_RSA_KEY_ID;
         OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL(me, OPTIGA_COMMS_NO_PROTECTION);
         return_status = optiga_crypt_rsa_generate_keypair(me,
                                                           OPTIGA_RSA_KEY_1024_BIT_EXPONENTIAL,

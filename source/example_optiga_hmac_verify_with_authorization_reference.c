@@ -30,11 +30,11 @@
 * SOFTWARE
 *******************************************************************************/
 
-#include "optiga/optiga_util.h"
-#include "optiga/optiga_crypt.h"
+#include "include/optiga_util.h"
+#include "include/optiga_crypt.h"
 
-#include "optiga/pal/pal_os_memory.h"
-#include "optiga/pal/pal_crypt.h"
+#include "include/pal/pal_os_memory.h"
+#include "include/pal/pal_crypt.h"
 #include "optiga_example.h"
 #include "mbedtls/ccm.h"
 #include "mbedtls/md.h"
@@ -66,7 +66,7 @@ const uint8_t secret_oid_metadata[] =
 const uint8_t arbitrary_oid_metadata[] = 
 {
     0x20, 0x05,
-          0xD1, 0x03, 0x23, 0xF1, 0xD0
+          0xD1, 0x03, 0x23, OPTIGA_FREE_ARB_DATA_OBJECT_ID_C
 };
 
 /**
@@ -228,7 +228,7 @@ static pal_status_t GetAutoValue(optiga_util_t * me_util, uint16_t secret_oid)
     do
     {
         /**
-         * 1. Set the metadata of secret OID(0xF1D0) using optiga_util_write_metadata.
+         * 1. Set the metadata of secret OID(OPTIGA_FREE_ARB_DATA_OBJECT_ID) using optiga_util_write_metadata.
          */
         optiga_lib_status = OPTIGA_LIB_BUSY;
         return_status = optiga_util_write_metadata(me_util,
@@ -239,7 +239,7 @@ static pal_status_t GetAutoValue(optiga_util_t * me_util, uint16_t secret_oid)
         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
 
         /**
-        *  2. Write shared secret in OID 0xF1D0
+        *  2. Write shared secret in OID OPTIGA_FREE_ARB_DATA_OBJECT_ID
         */
         optiga_lib_status = OPTIGA_LIB_BUSY;
         return_status = optiga_util_write_data(me_util,
@@ -310,7 +310,7 @@ void example_optiga_hmac_verify_with_authorization_reference(void)
          * Precondition : Get the User Secret and store it in OID
          */
         // Function name in line with SRM
-        return_status = GetAutoValue(me_util, 0xF1D0);
+        return_status = GetAutoValue(me_util, OPTIGA_FREE_ARB_DATA_OBJECT_ID);
         if (OPTIGA_LIB_SUCCESS != return_status)
         {
             break;
@@ -330,7 +330,7 @@ void example_optiga_hmac_verify_with_authorization_reference(void)
         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
         
         /**
-         * Set the metadata of 0xF1E0 to Auto with 0xF1D0.
+         * Set the metadata of 0xF1E0 to Auto with OPTIGA_FREE_ARB_DATA_OBJECT_ID.
          */
         optiga_lib_status = OPTIGA_LIB_BUSY;
         return_status = optiga_util_write_metadata(me_util,
@@ -410,7 +410,7 @@ void example_optiga_hmac_verify_with_authorization_reference(void)
         optiga_lib_status = OPTIGA_LIB_BUSY;
         return_status = optiga_crypt_hmac_verify(me_crypt,
                                                  OPTIGA_HMAC_SHA_256,
-                                                 0xF1D0,
+                                                 OPTIGA_FREE_ARB_DATA_OBJECT_ID,
                                                  input_data_buffer,
                                                  sizeof(input_data_buffer),
                                                  hmac_buffer,

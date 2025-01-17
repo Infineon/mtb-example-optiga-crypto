@@ -36,8 +36,8 @@
 */
 
 //#include <DAVE.h>
-#include "optiga/pal/pal_ifx_i2c_config.h"
-#include "optiga/pal/pal_gpio.h"
+#include "include/pal/pal_ifx_i2c_config.h"
+#include "include/pal/pal_gpio.h"
 #include "pal_psoc_gpio_mapping.h"
 
 

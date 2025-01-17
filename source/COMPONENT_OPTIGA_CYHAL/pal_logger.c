@@ -38,7 +38,7 @@
 #include "cyhal.h"
 #include "cybsp.h"
 
-#include "optiga/pal/pal_logger.h"
+#include "include/pal/pal_logger.h"
 
 #ifdef DEVELOPER_MODE_LOGGER
 // Macro Definitions

@@ -31,8 +31,8 @@
 * SOFTWARE
 *******************************************************************************/
 
-#include "optiga/optiga_util.h"
-#include "optiga/optiga_crypt.h"
+#include "include/optiga_util.h"
+#include "include/optiga_crypt.h"
 #include "optiga_example.h"
 
 #if defined OPTIGA_CRYPT_HMAC_ENABLED
@@ -69,7 +69,7 @@ static optiga_lib_status_t write_metadata(optiga_util_t * me)
     {
         optiga_lib_status = OPTIGA_LIB_BUSY;
         return_status = optiga_util_write_metadata(me,
-                                                   0xF1D0,
+                                                   OPTIGA_FREE_ARB_DATA_OBJECT_ID,
                                                    input_secret_oid_metadata,
                                                    sizeof(input_secret_oid_metadata));
         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
@@ -96,7 +96,7 @@ static optiga_lib_status_t write_input_secret_to_oid()
         }
         /**
          * Precondition 1 :
-         * Metadata for 0xF1D0 :
+         * Metadata for OPTIGA_FREE_ARB_DATA_OBJECT_ID :
          * Execute access condition = Always
          * Data object type  =  Pre-shared secret
          */
@@ -109,11 +109,11 @@ static optiga_lib_status_t write_input_secret_to_oid()
 
         /**
         *  Precondition 2 :
-        *  Write secret in OID 0xF1D0
+        *  Write secret in OID OPTIGA_FREE_ARB_DATA_OBJECT_ID
         */
         optiga_lib_status = OPTIGA_LIB_BUSY;
         return_status = optiga_util_write_data(me_util,
-                                               0xF1D0,
+                                               OPTIGA_FREE_ARB_DATA_OBJECT_ID,
                                                OPTIGA_UTIL_ERASE_AND_WRITE,
                                                0,
                                                input_secret,
@@ -186,7 +186,7 @@ void example_optiga_crypt_hmac(void)
         }
 
         /**
-         * 2. Update input secret in 0xF1D0
+         * 2. Update input secret in OPTIGA_FREE_ARB_DATA_OBJECT_ID
          *
          */
         return_status = write_input_secret_to_oid();
@@ -204,7 +204,7 @@ void example_optiga_crypt_hmac(void)
         
         return_status = optiga_crypt_hmac_start(me_crypt,
                                                 OPTIGA_HMAC_SHA_256,
-                                                0xF1D0,
+                                                OPTIGA_FREE_ARB_DATA_OBJECT_ID,
                                                 input_data_buffer_start,
                                                 sizeof(input_data_buffer_start));
 

@@ -36,8 +36,8 @@
 #include "cy_retarget_io.h"
 
 #include "optiga_example.h"
-#include "optiga/common/optiga_lib_logger.h"
-#include "optiga/pal/pal.h"
+#include "include/common/optiga_lib_logger.h"
+#include "include/pal/pal.h"
 
 /*******************************************************************************
 * Macros
@@ -221,13 +221,13 @@ int main(void)
     example_optiga_crypt_symmetric_encrypt_cbcmac();
 
     MESSAGE("18. Starting HMAC-SHA256 generation Example");
-    MESSAGE("1 Step: Change metadata for OID(0xF1D0) as Execute access condition = Always and Data object type  =  Pre-shared secret");
+    MESSAGE("1 Step: Change metadata for OID(0xF1D1) as Execute access condition = Always and Data object type  =  Pre-shared secret");
     MESSAGE("2 Step: Generate HMAC");
     example_optiga_crypt_hmac();
 
     MESSAGE("19. Starting HKDF-SHA256 key derivation Example");
-    MESSAGE("1 Step: Write the shared secret to the Arbitrary data object F1D0");
-    MESSAGE("2 Step: Change metadata of OID(0xF1D0) Data object type = Pre-shared secret");
+    MESSAGE("1 Step: Write the shared secret to the Arbitrary data object F1D1");
+    MESSAGE("2 Step: Change metadata of OID(0xF1D1) Data object type = Pre-shared secret");
     MESSAGE("3 Step: Derive HKDF");
     example_optiga_crypt_hkdf();
 
@@ -236,16 +236,16 @@ int main(void)
     example_optiga_crypt_symmetric_generate_key();
 
     MESSAGE("21. Starting HMAC verify with authorization reference Example");
-    MESSAGE("1 Step: Get the User Secret and store it in OID(0xF1D0)");
-    MESSAGE("2 Step: Set the metadata of 0xF1E0 to Auto with 0xF1D0");
+    MESSAGE("1 Step: Get the User Secret and store it in OID(0xF1D1)");
+    MESSAGE("2 Step: Set the metadata of 0xF1E0 to Auto with 0xF1D1");
     MESSAGE("3 Step: Generate authorization code with optional data");
     MESSAGE("4 Step: Calculate HMAC on host using mbedtls");
     MESSAGE("5 Step: Perform HMAC verification");
     example_optiga_hmac_verify_with_authorization_reference();
 
     MESSAGE("22. Starting clear auto state Example");
-    MESSAGE("1 Step: Change metadata of OID(0xF1D0) Data object type = Pre-shared secret");
-    MESSAGE("2 Step: Get the User Secret and store it in OID(0xF1D0)");
+    MESSAGE("1 Step: Change metadata of OID(0xF1D1) Data object type = Pre-shared secret");
+    MESSAGE("2 Step: Get the User Secret and store it in OID(0xF1D1)");
     MESSAGE("3 Step: Generate auth code with optional data");
     MESSAGE("4 Step: Calculate HMAC on host using mbedtls");
     MESSAGE("5 Step: Perform HMAC verification");

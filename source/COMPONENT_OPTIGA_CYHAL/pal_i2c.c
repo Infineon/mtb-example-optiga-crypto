@@ -35,7 +35,7 @@
 * @{
 */
 
-#include "optiga/pal/pal_i2c.h"
+#include "include/pal/pal_i2c.h"
 #include "pal_psoc_i2c_mapping.h"
 #include "cy_pdl.h"
 #include "cyhal.h"
